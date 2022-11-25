@@ -1,0 +1,16 @@
+.attributes {
+  list-style: none;
+  margin-top: 130px;
+  margin-left: 30px;
+}
+
+.attributes-text {
+  font-size: 17px;
+  text-align: right;
+  margin: 0px;
+  font-weight: 300;
+  text-align: left;
+}
+.attributes-value {
+  font-weight: 100;
+}
