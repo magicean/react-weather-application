@@ -9,8 +9,8 @@ export default function App() {
       <div className="weather-app shadow-lg border-0">
         <Search />
         <Header />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
