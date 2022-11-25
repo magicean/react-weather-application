@@ -1,6 +1,7 @@
 import "./App.css";
 import Search from "./Search";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Search />
         <Header />
       </div>
+      <Footer />
     </div>
   );
 }
