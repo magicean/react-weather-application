@@ -1,24 +1,53 @@
-.weather-text {
+.Weather {
+  border: none;
+  padding: 15px;
+  margin: 15px 0px 5px 0px;
+  border-radius: 8px;
+  background-color: #9cb9d167;
+}
+
+.Weather .city {
   margin: 0px;
   padding: 0px;
-}
-.city-name {
   font-size: 50px;
   font-weight: 200;
-}
-.city-text {
+
   text-transform: capitalize;
 }
 
-.weather-icon {
+.Weather .text {
+  margin: 0px;
+  padding: 0px;
+}
+
+.Weather .icon {
   float: left;
   margin-top: -15px;
 }
-.temp {
+.Weather .temperature {
   font-size: 60px;
   font-weight: 100;
   position: relative;
   top: -10px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Weather .attributes {
+  list-style: none;
+  margin-top: 130px;
+  margin-left: 30px;
+}
+
+.Weather .attributes-text {
+  font-size: 17px;
+  text-align: right;
+  margin: 0px;
+  font-weight: 300;
+  text-align: left;
+}
+.Weather .attributes-value {
+  font-weight: 100;
 }
 
 .switch-field {

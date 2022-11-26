@@ -1,16 +1,16 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import Search from "./Search";
-import Header from "./Header";
+import Weather from "./Weather";
 import Footer from "./Footer";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <div className="weather-app shadow-lg border-0">
+        <div className="shadow-lg border-0">
           <Search />
-          <Header />
+          <Weather city="Tokyo" />
         </div>
         <Footer />
       </div>

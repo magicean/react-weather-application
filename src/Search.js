@@ -8,7 +8,7 @@ export default function Search() {
         <div className="col-11">
           <form className="input-group">
             <input
-              type="text"
+              type="search"
               className="form-control border-0 shadow-sm rounded"
               placeHolder="Enter a City"
               autoComplete="off"
