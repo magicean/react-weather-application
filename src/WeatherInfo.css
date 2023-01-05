@@ -1,0 +1,50 @@
+.WeatherInfo {
+  border: none;
+  padding: 15px;
+  margin: 15px 0px 5px 0px;
+  border-radius: 8px;
+  background-color: #9cb9d167;
+}
+
+.WeatherInfo .city {
+  margin: 0px;
+  padding: 0px;
+  font-size: 50px;
+  font-weight: 200;
+
+  text-transform: capitalize;
+}
+
+.WeatherInfo .text {
+  margin: 0px;
+  padding: 0px;
+}
+
+.WeatherInfo canvas {
+  float: left;
+  margin-top: 10px;
+}
+.WeatherInfo .temperature {
+  font-size: 60px;
+  font-weight: 100;
+  position: relative;
+  margin-left: -10px;
+  padding: 0px;
+}
+
+.WeatherInfo .attributes {
+  list-style: none;
+  margin-top: 130px;
+  margin-left: 30px;
+}
+
+.WeatherInfo .attributes-text {
+  font-size: 17px;
+  text-align: right;
+  margin: 0px;
+  font-weight: 300;
+  text-align: left;
+}
+.WeatherInfo .attributes-value {
+  font-weight: 100;
+}

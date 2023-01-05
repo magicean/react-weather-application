@@ -1,97 +1,41 @@
-.Weather {
+.search-bar {
+  margin: 0 auto;
+  display: block;
+  max-width: 60%;
+}
+
+.search-icon {
   border: none;
-  padding: 15px;
-  margin: 15px 0px 5px 0px;
-  border-radius: 8px;
+  outline: none;
+}
+.search-icon:active {
+  outline: none;
+  border: none;
+}
+
+.search-icon {
+  color: #3f3f3f;
+  font-size: 20px;
+}
+
+.search-icon:hover {
+  color: #ec6e4c;
+}
+
+.current-location-button {
+  font-size: 20px;
+  color: #3f3f3f;
   background-color: #9cb9d167;
-}
-
-.Weather .city {
-  margin: 0px;
-  padding: 0px;
-  font-size: 50px;
-  font-weight: 200;
-
-  text-transform: capitalize;
-}
-
-.Weather .text {
-  margin: 0px;
-  padding: 0px;
-}
-
-.Weather .icon {
-  float: left;
-  margin-top: -15px;
-}
-.Weather .temperature {
-  font-size: 60px;
-  font-weight: 100;
-  position: relative;
-  top: -10px;
-  margin: 0px;
-  padding: 0px;
-}
-
-.Weather .attributes {
-  list-style: none;
-  margin-top: 130px;
-  margin-left: 30px;
-}
-
-.Weather .attributes-text {
-  font-size: 17px;
-  text-align: right;
-  margin: 0px;
-  font-weight: 300;
-  text-align: left;
-}
-.Weather .attributes-value {
-  font-weight: 100;
-}
-
-.switch-field {
-  display: flex;
-  float: inline-start;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.switch-field input {
-  position: absolute !important;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  width: 1px;
-  border: 0;
-  overflow: hidden;
-}
-
-.switch-field label {
-  background-color: rgba(255, 255, 255, 0.496);
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-  font-weight: 100;
-  line-height: 1;
-  text-align: center;
-  padding: 4px 6px;
   border: none;
-  transition: all 0.1s ease-in-out;
+  border-radius: 20px;
+  padding: 3px 10px;
+  box-shadow: 3px 5px 5px rgba(128, 128, 128, 0.15);
+  transition: all 25 0ms ease-in-out;
+  margin-left: -15px;
 }
 
-.switch-field label:hover {
-  cursor: pointer;
-}
-
-.switch-field input:checked + label {
-  background-color: #ec6e4c;
-  color: rgba(255, 255, 255, 0.752);
-  box-shadow: none;
-}
-
-.switch-field label:first-of-type {
-  border-radius: 4px 0 0 4px;
-}
-
-.switch-field label:last-of-type {
-  border-radius: 0 4px 4px 0;
+.current-location-button:hover {
+  background-color: #9cb9d167;
+  border: none;
+  color: #ec6e4c;
 }

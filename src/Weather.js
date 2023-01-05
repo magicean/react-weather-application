@@ -1,93 +1,75 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import WeatherInfo from "./WeatherInfo";
 
-export default function Header(props) {
-  let [city, setCity] = useState("");
-  let [temp, setTemp] = useState("");
+export default function Weather(props) {
+  let [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   let unit = "metric";
-  let weatherData = {
-    feelsLike: 14,
-    humidity: 49,
-    wind: 7,
-    date: "Tuesday, 8:24 p.m.",
-    description: "Clouds",
-    iconURL: "http://openweathermap.org/img/wn/02d@2x.png",
-  };
 
   function updateInformation(response) {
-    setCity(response.data.name);
-    setTemp(Math.round(response.data.main.temp));
     console.log(response);
+
+    setWeatherData({
+      ready: true,
+      city: response.data.name,
+      temperature: Math.round(response.data.main.temp),
+      feelsLike: Math.round(response.data.main.feels_like),
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+      date: new Date(response.data.dt * 1000),
+      description: "Clouds",
+      icon: response.data.weather[0].icon,
+    });
   }
 
-  let apiKey = "ff1d9ea9376b5c27a82e04fc2b2abdbb";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(updateInformation);
+  function search() {
+    const apiKey = "2b99915330dc99299d86e98273a6a560";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(updateInformation);
+  }
 
-  return (
-    <div className="Weather">
-      <div className="row">
-        <div className="col-8">
-          <span className="city">{city}</span>
-          <h3 className="text">{weatherData.date}</h3>
-          <h3 className="text">{weatherData.description}</h3>
-          <div className="row">
-            <div className="col-3">
-              <img
-                src={weatherData.iconURL}
-                alt="{weatherData.description}"
-                className="icon"
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <div className="row">
+          <div className="col-11">
+            <form className="input-group" onSubmit={handleSubmit}>
+              <input
+                type="search"
+                className="form-control border-0 shadow-sm rounded"
+                placeHolder="Enter a City"
+                autoComplete="off"
+                autoFocus="on"
+                onChange={handleCityChange}
               />
-            </div>
-            <div className="col-2">
-              <span className="temperature">{temp}</span>
-            </div>
-            <div className="col-1">
-              <span className="switch-field">
-                <input
-                  type="radio"
-                  name="switch-one"
-                  value="celsius"
-                  onclick="tempToCelsius()"
-                  checked
-                />
-                <label for="radio-one">C°</label>
-                <input
-                  type="radio"
-                  name="switch-one"
-                  value="fahrenheit"
-                  onclick="tempToFahrenheit();"
-                />
-                <label for="radio-two">F°</label>
+              <span className="input-group-btn">
+                <button className="btn btn-default search-icon" type="submit">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
               </span>
-            </div>
+            </form>
+          </div>
+          <div className="col-1">
+            <button className="btn current-location-button">
+              <i className="fa-solid fa-location-dot"></i>
+            </button>
           </div>
         </div>
-        <div className="col-4">
-          <ul className="attributes">
-            <li>
-              <h3 className="attributes-text">
-                Feels-like: {weatherData.feelsLike}°
-                <span className="attributes-value"></span>
-              </h3>
-            </li>
-
-            <li>
-              <h3 className="attributes-text">
-                Humidity: {weatherData.humidity}%
-                <span className="attributes-value"></span>
-              </h3>
-            </li>
-            <li>
-              <h3 className="attributes-text">
-                Wind: {weatherData.wind} km/h
-                <span className="attributes-value"></span>
-              </h3>
-            </li>
-          </ul>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
